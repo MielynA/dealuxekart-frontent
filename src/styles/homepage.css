@@ -1,0 +1,48 @@
+.container {
+    padding: 80px 120px;
+  }
+  
+.bestseller {
+  border-radius: 50%;
+  border: 10px solid transparent;
+  margin-bottom: 25px;
+  width: 25%;
+  height: 50%;
+  opacity: 5;
+
+}
+
+.bestseller:hover {
+    border-color: #e0dede;
+}
+
+.carousel-inner img {
+    -webkit-filter: grayscale(40%);
+    filter: grayscale(40%); /* make all photos black and white */ 
+    width: 40%; /* Set width to 100% */
+    margin: auto;
+  }
+  
+  .carousel-caption  {
+    color: #d82424 !important;
+  }
+  
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+  }
+
+  .category {
+    border: 10px solid transparent;
+    margin-bottom: 25px;
+    width: 20%;
+    height: 75%;
+    opacity: 2;
+    border-radius: 5px;
+  
+  }
+  .category:hover{
+     border-color: #e0dede;
+    
+  }

@@ -1,0 +1,47 @@
+.footer {
+    margin-bottom: 0;
+    background-color: #858282;
+    border: 0;
+    font-size: 11px !important;
+    letter-spacing: 4px;
+
+  }
+
+  .share-btn {
+    display: inline-block;
+    color: #ffffff;
+    border: none;
+    padding: 0.5em;
+    width: 5em;
+    opacity: 0.9;
+    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+    outline: none;
+    text-align: center;
+    transition: transform .25s ease;
+    transform: scale(.9);
+    font-size: 1em;
+}
+.share-btn:hover {
+  color: #eeeeee;
+  transform: scale(1.10);
+}
+.share-btn:active {
+  position: relative;
+  top: 2px;
+  box-shadow: none;
+  color: #e2e2e2;
+  outline: none;
+}
+.share-btn.twitter { background: #55acee; }
+.share-btn.facebook { background: #0666af; }
+.share-btn.github { background: #323131; }
+.share-btn.linkedin    { background: rgb(40, 60, 146); }
+.share-btn.instagram { background: #e93e3e; }
+
+
+.icon {
+    height: 100px;
+    margin: .5em;
+    max-width: 100px;
+    padding: 1em;
+  }
