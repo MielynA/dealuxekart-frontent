@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter , Route, Switch} from 'react-router-dom'; 
+import { BrowserRouter , Route,} from 'react-router-dom'; 
 
 //--- PAGES
 //import CoverPage from './components/coverpage/coverPage';
@@ -10,7 +10,9 @@ import Home from './containers/home/home';
 import SignIn from './containers/signin';
 import Register from './containers/register';
 import Logout from './containers/logout';
-import Error404 from './components/error404page';
+import product from './containers/product';
+import upload from './containers/upload';
+// import Error404 from './components/error404page';
 import firebase from './firebase';
 
 //--- CONTEXT 
@@ -45,21 +47,17 @@ class App extends Component {
      
        <div className = 'container'>
        <Route path='/' exact component={Home} />
-   
        <Route path='/signin' exact component={ SignIn } />
        <Route path='/register' component={ Register } />
        <Route path='/logout' exact component= { Logout} />
-       {/* <Route component={ Error404 } /> */}
+       <Route path='/product' exact component = {product} />
+       <Route path='/upload' exact component ={ upload } />
+       {/* <Route exact component={ Error404 } /> */}
        </div>
-      
-
-       
        <Route path='/' component={Footer} />
-      
-       
+ 
        </AuthContext.Provider>
        </BrowserRouter>
-      
       </React.Fragment>
     );
   }
