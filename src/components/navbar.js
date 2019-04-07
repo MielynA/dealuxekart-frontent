@@ -1,11 +1,34 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 import AuthContext from '../contexts/auth';
+import { FaBars, FaCartPlus } from "react-icons/fa";
+//import ProdListContext from '../contexts/prodList';
+//import addToCart from './addToCart';
 
 import '../styles/navbar.css';
 
 
-const NavBar = props => {
+class NavBar extends React.Component {
+    constructor (props){
+        super(props)
+        this.state = {
+            cart: [],
+            sidebarOpen: false,
+            cartOpen: false,
+            cartItems: 0,
+
+        }
+    }
+
+    // handle sidebar
+  handleSidebar = () => {
+    this.setState({ sidebarOpen: !this.state.sidebarOpen });
+  };
+  // hanldle sart
+  handleCart = () => {
+    this.setState({ cartOpen: !this.state.cartOpen });
+  };
+    render() {
     return (
         <AuthContext.Consumer>
             {
@@ -42,9 +65,10 @@ const NavBar = props => {
                                                 <li className='nav-item'>
                                                     <a className='nav-link' href='/'>Orders</a>
                                                 </li>
-
-                                                <button type="button" class="btn btn-default btn-lg">
-                                                    <span class="glyphicon glyphicon-shopping-cart"></span></button>
+                                               
+                                                <button type="button" className="btn btn-default btn-lg" onClick={this.handleSideBar}> 
+                                                    <span className="glyphicon glyphicon-shopping-cart"><FaCartPlus className="nav-icon" onClick={this.handleCart} />
+                                                      <div className="cart-items">{this.cartItems}</div></span></button>
 
                                                 <li className='nav-item'>
                                                     <a className='nav-link' href='/logout'>Logout</a>
@@ -57,7 +81,7 @@ const NavBar = props => {
                         );
 
                     }
-                    else {
+                    else if(!user) {
                         return (
                             <React.Fragment>
                             <nav className='navbar navbar-expand-xl fixed-top'>
@@ -69,7 +93,7 @@ const NavBar = props => {
                                         <div className='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>
                                             <a className='dropdown-item' href='/'>MEN</a>
                                             <a className='dropdown-item' href='/'>WOMEN</a>
-                                            <a className='dropdown-item' href='/'>VIEW ALL</a>
+                                            <a className='dropdown-item' href='/viewAll'>VIEW ALL</a>
                                         </div>
                                     </li>
                                     </ul>
@@ -90,8 +114,8 @@ const NavBar = props => {
                                             <a className='nav-link' href='/'>Hot Deals</a>
                                         </li>
 
-                                        <button type="button" class="btn btn-default btn-lg">
-                                            <span class="glyphicon glyphicon-shopping-cart"></span></button>
+                                        <button type="button" className="btn btn-default btn-lg">
+                                            <span className="glyphicon glyphicon-shopping-cart"></span></button>
 
                                         <li className='nav-item'>
                                             <a className='nav-link' href='/signin'>Login</a>
@@ -103,11 +127,24 @@ const NavBar = props => {
                         );
 
                     }
+                    else {
+                        return (
+                            <React.Fragment>
+                                 <div className = 'jumbotron jumbotron-fluid'>
+                                      <div className = 'container'>
+        
+                                   <h2 className='display-4 text-center'>You are not Logged in</h2>
+                                   </div>
+                                   </div>
+                            </React.Fragment>
+                        );
+                    }
                 }
             }
 
         </AuthContext.Consumer>
     );
+   }
 }
 
 export default NavBar; 

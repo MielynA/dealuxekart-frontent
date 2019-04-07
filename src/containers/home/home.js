@@ -1,23 +1,46 @@
 import React from 'react';
+import { Container, Row, Col } from 'reactstrap';
+import ProductInfo from '../../services/prodInfo';
+
+import ProdListContext from '../../contexts/prodList';
+import ProductList from '../../components/productList';
+
+import { Link } from 'react-router-dom';
 
 import '../../styles/homepage.css';
+import ProductDetails from '../../components/productDetails';
 
 
 class Home extends React.Component {
+   constructor(props){
+       super(props);
+       this.state = {
+          product: ProductInfo.product,
+          list:[],
+          addToCart: [],
+          location: this.props.location.pathname,
+          
 
+       }
+   }
+    handleToggle = () =>{
+      this.setState(prevState => ({
+        modal: !prevState.modal
+      }))
+    }
 
-
-
-
-
-
-
+    handleImageSelected = (e) =>{
+        
+      const selectImage = e.currentTarget
+      console.log(selectImage)
+    }  
+    
     render() {
+        
+        
         return (
             <React.Fragment>
-
                 <div id='myCarousel' className='carousel slide' data-ride='carousel'>
-
                     <ol className='carousel-indicators'>
                         <li data-target='#myCarousel' data-slide-to='0' className='active'></li>
                         <li data-target='#myCarousel' data-slide-to='1'></li>
@@ -52,7 +75,7 @@ class Home extends React.Component {
                         <div className='item'>
                             <img src={require('../../images/whipstitchtote.jpg')} alt=''></img>
                             <div className='carousel-caption'>
-                                <h3>Whip Stitch tota bag</h3>
+                                <h3>Whip Stitch tote bag</h3>
                                 <p>Appropriate for the office, but also for a fun day out with the girls.</p>
                             </div>
                         </div>
@@ -67,25 +90,35 @@ class Home extends React.Component {
                         <span className='sr-only'>Next</span>
                     </a>
                 </div>
-
-
-                {/* START OF BEST SELLER & CATEGORY CONTAINER */}
+                    
                 <div className='container text-center'>
                     <h2>Welcome to DealuxeKart</h2>
                     <h5>Best Seller</h5>
+                
+                    <ProdListContext.Provider value={this.state.product}>
+                        <ProductList />
+                      
+                    </ProdListContext.Provider>
+                
+                    {/* <Modal isOpen={this.state.modal} toggle={this.handleToggle}>
+                    <ModalBody>
+                    <BestSellerProd product={this.state.product} onClick={this.handleImageSelected} ></BestSellerProd>
+                    </ModalBody>
+                    </Modal> */}
+                 
                     <div className='row'>
                         <div className='col-12'>
-                            <a href='#demo'>
-                                <img className='bestseller ' src={require('../../images/blackhandbag.jpg')} alt=''></img></a>
-                            <a href='#demo'>
-                                <img className='bestseller' src={require('../../images/crossbody.jpg')} alt=''></img></a>
-                            <a href='#demo'>
-                                <img className='bestseller' src={require('../../images/shoulderbag.jpg')} alt=''></img></a>
-                            <a href='#demo'>
-                                <img className='bestseller' src={require('../../images/fringebucket.jpg')} alt=''></img></a>
+                         <Link to='/products'></Link>
                         </div>
                     </div>
-
+                        {/* <Modal isOpen={this.state.modal} toggle={this.handleToggle}>
+                    <ModalBody>
+                    <BestSellerProd product={this.state.product} onClick={this.handleImageSelected} ></BestSellerProd>
+                    </ModalBody>
+                    </Modal> */}
+                 
+                       {/* <BestSellerProd product={this.state.product} onClick={this.handleImageSelected}></BestSellerProd> */}
+                       
                     <h5>Category</h5>
                     <div className='row'>
                         <div className='col-12'>
@@ -100,8 +133,6 @@ class Home extends React.Component {
                         </div>
                     </div>
                 </div>
-              
-
             </React.Fragment>
         );
     }

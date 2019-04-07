@@ -1,5 +1,5 @@
 import React from 'react'; 
-
+import axios from 'axios'
 import firebase from 'firebase';
 import AuthContext from '../contexts/auth';
 import { Redirect, Link } from 'react-router-dom'; 
@@ -8,7 +8,9 @@ export default class Register extends React.Component {
    state = {
       email: '',
       password: '',
-      error: ''
+      error: '',
+      customerId: '',
+      
     }
   
     handleChange = (e) => {
@@ -28,7 +30,19 @@ export default class Register extends React.Component {
           this.setState({ error: message });
         })
     }
+     newUser = () => {
+        const {email, customerId } =this.state;
+        axios.post('http://localhost:5001/privatecustomer', {
+          username: "Amaya",
+          password: "admin123",
+          email: "amaya@email.com",
+          billingAdd: "Kew Gardens", 
+          city: "NY",
+          state:"NYC ",
+          creditCard: 1234444,
 
+        })
+     }
 
   render(){
    const { email, password, error } = this.state;
@@ -40,7 +54,7 @@ export default class Register extends React.Component {
                    <div className = 'container col-8'>
                     <div className='card'>
                         <h2 className='card-header text-center' style={{ backgroundColor: "orange" }}>
-                            Sign in
+                          Sign up
                         </h2>
                         {displayError}
                         <div className='card-body'>

@@ -6,12 +6,14 @@ import { BrowserRouter , Route,} from 'react-router-dom';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 import Home from './containers/home/home';
-
 import SignIn from './containers/signin';
 import Register from './containers/register';
 import Logout from './containers/logout';
-import product from './containers/product';
+import products from './containers/products';
+import Product from './components/Product';
+import BestSellerProd from './components/bestSellerProd';
 import upload from './containers/upload';
+import viewAll from './containers/viewAll';
 // import Error404 from './components/error404page';
 import firebase from './firebase';
 
@@ -50,8 +52,10 @@ class App extends Component {
        <Route path='/signin' exact component={ SignIn } />
        <Route path='/register' component={ Register } />
        <Route path='/logout' exact component= { Logout} />
-       <Route path='/product' exact component = {product} />
+       <Route path='/product' exact component = {Product} />
+       <Route exact path='/products'  component = {BestSellerProd} />
        <Route path='/upload' exact component ={ upload } />
+       <Route path='/viewAll' exact component ={viewAll} />
        {/* <Route exact component={ Error404 } /> */}
        </div>
        <Route path='/' component={Footer} />
