@@ -1,8 +1,8 @@
 import React from 'react';
-import Image from '../components/images';
+import Image from '../components/image';
 import ImageService from '../services/images';
 
-export default class Home extends React.Component {
+export default class UploadDetail extends React.Component {
 
   constructor(props) {
     super(props);
@@ -15,7 +15,9 @@ export default class Home extends React.Component {
     }
   }
 
+   
   render() {
+    console.log('upload details', this.state)
     const { images } = this.state; 
     return (
       <div className='container'>

@@ -4,10 +4,9 @@
   
 
 .carousel-inner img {
-    -webkit-filter: grayscale(40%);
-    filter: grayscale(40%); /* make all photos black and white */ 
-    width: 40%; /* Set width to 100% */
+    width: 35%; /* Set width to 100% */
     margin: auto;
+   
   }
   
   .carousel-caption  {
@@ -19,12 +18,16 @@
       display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
     }
   }
-
+ 
+  .topContainer{
+    display: flex;
+    flex-direction: row;
+  }
   .category {
     border: 10px solid transparent;
     margin-bottom: 25px;
     width: 20%;
-    height: 75%;
+    height: 50%;
     opacity: 2;
     border-radius: 5px;
   

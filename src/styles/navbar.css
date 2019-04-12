@@ -31,13 +31,15 @@
   
   /* Dropdown */
   .open .dropdown-toggle {
-    color: #fff ;
+    color: black ;
     background-color: #858282 !important;
   }
   
   /* Dropdown links */
   .dropdown-menu li a {
-    color: #000 !important;
+    color: rgb(14, 13, 13) !important;
   }
   
- 
+ .dropdown-item {
+   color: black;
+ }

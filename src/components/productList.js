@@ -1,5 +1,4 @@
 import React from 'react'; 
-import { Media, Container, Row } from 'reactstrap';
 import ProdListContext from '../contexts/prodList';
 import BestSellerProd from './bestSellerProd';
 

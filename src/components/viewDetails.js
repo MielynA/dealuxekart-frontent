@@ -1,6 +1,5 @@
 import React from 'react'; 
-import ProductDetail from '../components/productDetails';
-
+//import Product from './Product';
 
 const ViewDetails = (props) => {
    console.log('view products',props);
@@ -8,6 +7,10 @@ const ViewDetails = (props) => {
    return(
     <React.Fragment>
        <p></p>
+       {/* <p>{props.product.prductName}</p> */}
+       {/* <ProductDetail>testing
+           <p>{product.prductName}</p>
+       </ProductDetail> */}
          
     </React.Fragment>
    )

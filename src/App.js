@@ -9,11 +9,12 @@ import Home from './containers/home/home';
 import SignIn from './containers/signin';
 import Register from './containers/register';
 import Logout from './containers/logout';
-import products from './containers/products';
-import Product from './components/Product';
+// import products from './containers/products';
+
 import BestSellerProd from './components/bestSellerProd';
-import upload from './containers/upload';
+import Upload from './containers/upload';
 import viewAll from './containers/viewAll';
+import Cart from './components/cart';
 // import Error404 from './components/error404page';
 import firebase from './firebase';
 
@@ -52,10 +53,11 @@ class App extends Component {
        <Route path='/signin' exact component={ SignIn } />
        <Route path='/register' component={ Register } />
        <Route path='/logout' exact component= { Logout} />
-       <Route path='/product' exact component = {Product} />
+   
        <Route exact path='/products'  component = {BestSellerProd} />
-       <Route path='/upload' exact component ={ upload } />
+       <Route path='/upload' exact component ={ Upload } />
        <Route path='/viewAll' exact component ={viewAll} />
+       <Route path='/cart' exact component ={Cart} />
        {/* <Route exact component={ Error404 } /> */}
        </div>
        <Route path='/' component={Footer} />
