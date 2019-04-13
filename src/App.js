@@ -9,9 +9,9 @@ import Home from './containers/home/home';
 import SignIn from './containers/signin';
 import Register from './containers/register';
 import Logout from './containers/logout';
-// import products from './containers/products';
-
+import Result from './components/result'; 
 import BestSellerProd from './components/bestSellerProd';
+import ShopProfile from './containers/shopProfile';
 import Upload from './containers/upload';
 import viewAll from './containers/viewAll';
 import Cart from './components/cart';
@@ -53,10 +53,11 @@ class App extends Component {
        <Route path='/signin' exact component={ SignIn } />
        <Route path='/register' component={ Register } />
        <Route path='/logout' exact component= { Logout} />
-   
        <Route exact path='/products'  component = {BestSellerProd} />
        <Route path='/upload' exact component ={ Upload } />
        <Route path='/viewAll' exact component ={viewAll} />
+       <Route path='/result/:id' exact component={Result} />
+       <Route path='/shopProfile' exact component={ShopProfile} />
        <Route path='/cart' exact component ={Cart} />
        {/* <Route exact component={ Error404 } /> */}
        </div>

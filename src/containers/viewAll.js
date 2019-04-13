@@ -4,7 +4,7 @@ import { Button, Container, InputGroup, Input, } from 'reactstrap';
 import Result from '../components/result'
 import InfiniteScroll from 'react-infinite-scroller'
 import {CircleArrow as ScrollUpButton} from "react-scroll-up-button"
-
+//import Search from '../containers/search';
 
 
 
@@ -25,14 +25,14 @@ export default class ViewAll extends React.Component {
         e.preventDefault();
         if(this.state.searchInput === ''){
             this.setState({
-                alert: true,
+                // alert: true,
                 message: 'Your search is not valid'
             })
         } else {
-            this.props.history.push(`/result/${this.state.searchInput}/${e.target.value}`);
+            this.props.history.push(`/result/${this.state.searchInput}`);
             this.setState({
                 searchInput: '',
-                alert: false,
+                // alert: false,
             })
         }
        
@@ -101,7 +101,7 @@ export default class ViewAll extends React.Component {
     
         return(
             <React.Fragment>
-               
+               {/* <Search /> */}
                 <Container>
                     <InputGroup>
                     <Input value={searchInput} placeholder='Search' onChange={this.setSearchInput} type='text' name='searchInput' onClick={this.getSearchInfo}>

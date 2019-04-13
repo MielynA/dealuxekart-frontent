@@ -9,10 +9,7 @@ const Footer = (props) => {
                 <p><h3 className ='mt-5'>Chat with Me</h3></p>
                 <img src='https://image.flaticon.com/icons/svg/234/234149.svg' alt='Chat icon' className='icon'/>
 
-                <form className='form-inline'>Get deals:
-                 <input type='email' className='form-control' size='50' placeholder='Email Address' />
-                    <button type='button' className='btn btn-danger'>Sign Up</button>
-                </form>
+               
                 <a href='https://twitter.com/' target='blank' className='share-btn twitter mb-3'>
                     <i className='fa fa-twitter'></i>
                 </a>

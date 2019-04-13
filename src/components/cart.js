@@ -64,20 +64,20 @@ import {Link} from 'react-router-dom';
              return this.totalAll(this.state.cartItems)
          })
          .then(total =>{
-             this.setState({totla: total})
+             this.setState({total: total})
          })
      }
      render(){
          const { total } = this.state
-         
+
          return (
              <React.Fragment>
             {
                 this.state.cartItems.map((cartItems,i)=>{
                     return (
                         <React.Fragment>
-                            <button style={{float: 'right', color: 'orange'}}onClick={this.deleteItem}>X</button>
-                            <img style={{borderRadius: '50%', width: '10%', height:'90px'}} src={cartItems.imgurl.pic} alt=''></img>
+                            <button style={{float: 'right', color: 'orange', marginTop: '5px'}} onClick={this.deleteItem}>X</button>
+                            <img style={{borderRadius: '50%', width: '10%', height:'90px', marginTop: '5px'}} src={cartItems.imgurl.pic} alt=''></img>
                             <div className ='mt-3 mb-3'>{cartItems.productname}</div>
                             <p>{cartItems.categorydesc}</p>
                             <p>{cartItems.color}</p>
@@ -88,8 +88,9 @@ import {Link} from 'react-router-dom';
                     
                 })
             } 
-               <Link to='/Checkout'><Button>Checkout</Button></Link>
                <div style={{color: 'red'}}> Sum total $ {total}</div>
+               <Link to='/Checkout'><Button>Proceed to Checkout</Button></Link>
+               
             </React.Fragment>
          )
          
